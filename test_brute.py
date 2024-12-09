@@ -48,6 +48,13 @@ def describe_Brute():
         crack.bruteMany(1)
         assert random.call_count == 1
     
+    def bruteMany():
+        crack = Brute("awesomesauce")
+        random = Mock()
+        crack.randomGuess = random
+        crack.bruteMany()
+        assert random.call_count == 1
+    
     
     def test_describe_bruteMany_hash():
         crack = Brute("awesomesauce")
@@ -55,4 +62,20 @@ def describe_Brute():
         crack.hash = random
         crack.bruteMany(1)
         assert random.call_count == 1
-        
+    
+    def test_describe_bruteOnce_hash():
+       crack = Brute("awesomesauce")
+       hash = Mock()
+       crack.hash = hash
+       crack.bruteOnce("awesomesauce")
+       assert hash.call_count == 1
+       assert crack.bruteOnce("test") == False
+
+    def test_describe_brute_init_string_fail():
+       crack = Brute("awesomesauce")
+       hash = Mock()
+       crack.hash = hash
+       crack.bruteOnce("awesomesauce")
+       assert crack.bruteOnce("fail") == False
+
+      
