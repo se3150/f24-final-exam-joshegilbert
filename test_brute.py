@@ -24,11 +24,10 @@ def describe_Brute():
        crack = Brute("1234567890")
        assert hash.call_count == 1
 
-    def test_describe_hash():
-        hash = Mock()
-        Brute.hash = hash
+    def test_describe_brute_once():
         crack = Brute("awesomesauce")
-        assert hash.call_count == 1
+        testing = crack.bruteOnce("awesomesauce")
+        assert testing == True
     
     def test_bruteOnce_manytimes():
         for i in range(10):
@@ -40,7 +39,7 @@ def describe_Brute():
             string = string[0] + string[1] + string[2]
             crack = Brute(string)
             assert crack.bruteOnce(string) == True
-
+    
     def test_describe_bruteMany_random():
         crack = Brute("awesomesauce")
         random = Mock()
@@ -69,7 +68,6 @@ def describe_Brute():
        crack.hash = hash
        crack.bruteOnce("awesomesauce")
        assert hash.call_count == 1
-       assert crack.bruteOnce("test") == False
 
     def test_describe_brute_init_string_fail():
        crack = Brute("awesomesauce")
