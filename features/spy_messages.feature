@@ -8,7 +8,7 @@ Scenario: I can successfully encode a secret message
     When I add "Strength and honor!" to the inputfield "#letters"
     When I select the 2 option for element "#shift-amount"
     When I click on the button "#submit"
-    When I pause for 100ms
+    When I pause for 1000ms
     Then I expect that element "#decoded_message" contains the text "Uvtgpivj cpf jqpqt!"
 
 Scenario: I can successfully decode a secret message
@@ -18,5 +18,5 @@ Scenario: I can successfully decode a secret message
     When I click on the element "p"
     When I select the 2 option for element "#shift-amount"
     When I click on the button "#submit"
-    When I pause for 100ms
+    When I pause for 1000ms
     Then I expect that element "#decoded_message" contains the text "Strength and honor!"

@@ -9,7 +9,7 @@ on:
       - main # Trigger on pull requests to the main branch
 
 jobs:
-  RunTestingBattery:
+  RunTestingBrute:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
